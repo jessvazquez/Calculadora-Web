@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    background: blue;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    height: 60px;
+    font-size: 32px;
+    margin-top: 18px;
+    border: 6px solid #ccc;
+}
+
+#contenedor-gris {
+    width: 100%;
+    height: 610px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#contenedor-calculadora {
+    width: 50%;
+    height: 100%;
+    background: gainsboro;
+    margin-top: 40px;
+    border-radius: 20px;
+    border: 1px solid #aaa;
+}
+
+
+#pantalla {
+    width: 90%;
+    height: 100%;
+    background: white;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contenedor-pantalla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 21%;
+}
+
+#numeros {
+    margin-top: 40px;
+    height: 78%;
+    width: 100%;
+}
+
+#filas {
+    margin-left: 8px;
+}
+
+button {
+    padding: 32px;
+    margin: 8px;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    box-shadow: 5px 5px 10px #aaa;
+    cursor: pointer;
+    background: white;
+    font-weight: bold;
+}
+
+#operaciones {
+    width: 80%;
+    text-align: right;
+}
+
+#contenedor-borrar {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+}
+
+#btn-borrar {
+    padding: 20px;
+    width: 25%;
+    border-radius: 10px;
+    border: 1px solid #999;
+    box-shadow: 5px 5px 10px #aaa;
+    cursor: pointer;
+    text-align: center;
+    background: magenta;
+    color: white;
+}
