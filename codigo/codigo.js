@@ -4,13 +4,17 @@ var p = {
     //Propiedad teclas: Seleccionamos todos los item numericos
     teclas: document.querySelectorAll("#calculadora ul li"),
 
-    //accion es para saber si obtenemos un numero
+    //accion es para saber si obtenemos un numero,
     //un signo, un decimal o un igual.
     accion: null,
 
     digito: null,
 
-    operaciones: document.querySelector("#operaciones")
+    operaciones: document.querySelector("#operaciones"),
+
+    cantidadSignos: 0,
+
+    decimal: false
 
 }
 
@@ -39,29 +43,73 @@ var m = {
     },
 
     calculadora: function (accion, digito) {
-
         switch (accion) {
+
             case "numero":
+                p.cantidadSignos = 0;
                 //Mostramos operaciones en pantalla.
-                p.operaciones.innerHTML += digito;
-                console.log("numero", digito);
+                if (p.operaciones.innerHTML == 0) {
+                    p.operaciones.innerHTML = digito;
+                } else {
+                    p.operaciones.innerHTML += digito;
+                    console.log("numero", digito);
+                }
+
                 break;
             case "signo":
-                p.operaciones.innerHTML += digito;
-                console.log("signo", digito);
+                p.cantidadSignos++;
+                if (p.cantidadSignos == 1) {
+                    if (p.operaciones.innerHTML == 0) {
+                        p.operaciones.innerHTML = 0;
+                    } else {
+                        p.operaciones.innerHTML += digito;
+                        p.decimal = false;
+                        console.log("signo", digito);
+                    }
+
+                }
                 break;
             case "igual":
-                console.log("igual", digito);
-                p.operaciones.innerHTML += digito;
+                p.cantidadSignos++;
+                if (p.cantidadSignos == 1) {
+                    if (p.operaciones.innerHTML == 0) {
+                        p.operaciones.innerHTML = 0;
+                    } else {
+                        p.operaciones.innerHTML += digito;
+                        console.log("igual", digito);
+                    }
+                }
+
                 break;
             case "decimal":
-                p.operaciones.innerHTML += digito;
-                console.log("decimal", digito);
+                p.cantidadSignos++;
+
+                if (p.cantidadSignos == 1) {
+                    if (p.operaciones.innerHTML == 0) {
+                        p.operaciones.innerHTML = 0
+                    } else {
+                        if (!p.decimal) {
+                            p.operaciones.innerHTML += digito;
+                            p.decimal = true;
+                            console.log("decimal", digito);
+                        }
+
+                    }
+
+                }
+
                 break;
         }
 
-    }
+    },
 
+
+    borrar: function () {
+        if (p.operaciones.innerHTML != 0) {
+            p.operaciones.innerHTML = 0;
+            console.log("Borrado");
+        }
+    }
 }
 
 //disparamos funcion inicio()
