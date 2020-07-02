@@ -21,7 +21,7 @@ var p = {
 //metodos de la calculadora
 var m = {
 
-    inicio: function () {
+    inicio: function() {
         //Creamos un for hasta la longitud de teclas  
         for (var i = 0; i < p.teclas.length; i++) {
             //A cada item de las teclas se le agrega un addEventListener
@@ -31,7 +31,7 @@ var m = {
     },
 
     //Recibimos el objeto tecla.
-    oprimirTecla: function (tecla) {
+    oprimirTecla: function(tecla) {
         //con target obtenemos el evento seleccionado
         //getAttribute permite seleccionar un elemento
         //del DOM
@@ -42,7 +42,7 @@ var m = {
 
     },
 
-    calculadora: function (accion, digito) {
+    calculadora: function(accion, digito) {
         switch (accion) {
 
             case "numero":
@@ -75,15 +75,14 @@ var m = {
                     if (p.operaciones.innerHTML == 0) {
                         p.operaciones.innerHTML = 0;
                     } else {
-                        p.operaciones.innerHTML += digito;
-                        console.log("igual", digito);
+                        // eval() toma la cadena, separa en base a signos matematicos y retorna el total de dicha operacion.
+                        p.operaciones.innerHTML = eval(p.operaciones.innerHTML);
                     }
                 }
 
                 break;
             case "decimal":
                 p.cantidadSignos++;
-
                 if (p.cantidadSignos == 1) {
                     if (p.operaciones.innerHTML == 0) {
                         p.operaciones.innerHTML = 0
@@ -97,17 +96,16 @@ var m = {
                     }
 
                 }
-
                 break;
         }
 
     },
 
 
-    borrar: function () {
+    borrar: function() {
         if (p.operaciones.innerHTML != 0) {
             p.operaciones.innerHTML = 0;
-            console.log("Borrado");
+            console.clear();
         }
     }
 }
