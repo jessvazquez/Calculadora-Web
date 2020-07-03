@@ -192,6 +192,7 @@ var m = {
                 }
 
                 if (tecla.keyCode == 8) {
+                    p.accion = "false";
                     m.borrar();
                 }
                 m.calculadora(p.accion, p.digito);
