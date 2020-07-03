@@ -33,7 +33,6 @@ center {
     background: #ddd;
 }
 
-
 #operaciones {
     position: relative;
     margin: 20px auto;
@@ -45,6 +44,7 @@ center {
     padding: 10%;
     text-align: right;
     font-size: 25px;
+    overflow: hidden;
 }
 
 #calculadora ul {
@@ -63,7 +63,6 @@ center {
     box-shadow: 5px 5px 10px #999;
     font-weight: bold;
     cursor: pointer;
-
 }
 
 #calculadora ul li:hover {
